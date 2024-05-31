@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const cors = require('cors');
+const axios = require('axios');
 require('dotenv').config();
 
 
@@ -55,6 +56,27 @@ app.post('/register', (req, res) => {
   });
 });
 
+
+app.post('/api/breachedaccount', async (req, res) => {
+  const email = req.body.email;
+  console.log(`Received email: ${email}`);
+  try {
+      const response = await axios.get(`https://haveibeenpwned.com/api/v3/breachedaccount/${email}`, {
+          headers: {
+              'hibp-api-key': process.env.REACT_APP_API_KEY,
+              'user-agent': 'PwnedChecker/1.0 (contact@yourdomain.com)', 
+          },
+      });
+      res.json(response.data);
+  } catch (error) {
+      if (error.response && error.response.status === 404) {
+          res.status(404).json([]);
+      } else {
+          console.error('Error fetching breach data:', error);
+          res.status(500).json({ message: 'An error occurred while checking breaches.' });
+      }
+  }
+});
 
 db.connect((err) => {
   if (err) {
