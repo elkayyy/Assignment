@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -30,14 +29,17 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignIn() {
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const email = data.get('email');
+    const username = data.get('username');
     const password = data.get('password');
-    axios.post('http://localhost:8000/login' ,{email,password})
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+
+    axios.post('http://localhost:8000/login', { username, password })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
 
   }
 
@@ -64,11 +66,12 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="username"
+              label="username"
+              name="username"
+              autoComplete="username"
               autoFocus
+            
             />
             <TextField
               margin="normal"
