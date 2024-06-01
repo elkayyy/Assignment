@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
 
-export default function MiddleBar({ email, setEmail, handleCheckBreaches, loading }) {
+export default function InputBar({ email, setEmail, handleCheckBreaches, loading }) {
     return (
         <div className='middleBar'>
             <div className='box'>

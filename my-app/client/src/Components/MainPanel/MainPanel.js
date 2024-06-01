@@ -4,7 +4,7 @@ import axios from 'axios';
 import './MainPanel.css';
 import NavrBar from './NavrBar/NavBar';
 import Results from './Results/Results';
-import MiddleBar from './MiddleBar';
+import InputBar from './InputBar/InputBar';
 import { useNavigate } from 'react-router-dom';
 
 export default function MainPanel() {
@@ -45,7 +45,7 @@ export default function MainPanel() {
         <div className='container'>
             <div className='navContainer'><NavrBar onLogout={handleLogout} /></div>
             <div className='middleBar'>
-                <MiddleBar
+                <InputBar
                     email={email}
                     setEmail={setEmail}
                     handleCheckBreaches={handleCheckBreaches}
