@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -30,15 +31,18 @@ const defaultTheme = createTheme();
 
 export default function SignIn() {
 
-
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const username = data.get('username');
     const password = data.get('password');
-
+  
     axios.post('http://localhost:8000/login', { username, password })
-      .then(res => console.log(res))
+      .then(res => {
+         localStorage.setItem('user', JSON.stringify(res.data));
+         navigate('/main')
+      })
       .catch(err => console.log(err));
 
   }

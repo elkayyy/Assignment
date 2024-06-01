@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LoginForm from './LoginForm/Login'
-import RegistrationForm from './RegistrationForm/Registration'
-import MainPanel from './MainPanel/MainPanel'
+import LoginForm from './Components/LoginForm/Login'
+import RegistrationForm from './Components/RegistrationForm/Registration'
+import MainPanel from './Components/MainPanel/MainPanel'
+import ProtectedRoutes from './Utils/ProtectedRoutes';
+
 
 function App() {
   return (
@@ -9,7 +11,11 @@ function App() {
       <Routes>
         <Route exact path="/login" element={<LoginForm />} />
         <Route exact path="/register" element={<RegistrationForm />} />
-        <Route exact path="/main" element={<MainPanel />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route exact path="/main" element={<MainPanel />} />
+          <Route exact path="/" element={<LoginForm />} />
+        </Route>
+
       </Routes>
     </Router>
 

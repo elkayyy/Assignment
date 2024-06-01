@@ -32,8 +32,6 @@ const db = mysql.createConnection({
 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
-
-  console.log(username);
   const query = 'SELECT * FROM users WHERE username = ? AND password = ?';
   db.query(query, [username, password], (err, results) => {
     if (results.length === 0) {
@@ -59,14 +57,24 @@ app.post('/register', (req, res) => {
 
 app.post('/api/breachedaccount', async (req, res) => {
   const email = req.body.email;
-  console.log(`Received email: ${email}`);
+
   try {
-      const response = await axios.get(`https://haveibeenpwned.com/api/v3/breachedaccount/${email}`, {
+      const response = await axios.get(`https://haveibeenpwned.com/api/v3/breachedaccount/${email}?truncateResponse=false`, {
           headers: {
               'hibp-api-key': process.env.REACT_APP_API_KEY,
               'user-agent': 'PwnedChecker/1.0 (contact@yourdomain.com)', 
           },
       });
+
+      const additionalInfo = response.data.map(breach => ({
+        name: breach.Name,
+        title: breach.Title,
+        domain: breach.Domain,
+        breachDate: breach.BreachDate,
+        description: breach.Description,
+        logoPath: breach.LogoPath
+    }));
+ 
       res.json(response.data);
   } catch (error) {
       if (error.response && error.response.status === 404) {

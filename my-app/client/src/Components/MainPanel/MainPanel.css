@@ -10,6 +10,7 @@ html, body, #app, #app>div {
    flex-direction: column;
    justify-content: space-evenly;
    align-items: center;
+   gap: 2rem;
 }
 
 .middleBar {
@@ -17,17 +18,19 @@ html, body, #app, #app>div {
     align-items: center;
 }
 
-.topBar {
+.navContainer {
     display: flex;
     text-align: center;
 }
+
+
 
 @media (max-width: 680px) {
     .container {
         
       align-items: normal;
     }
-    .topBar {
+    .navContainer {
        text-align: center;
     }
   }
