@@ -28,7 +28,7 @@ export default function MainPanel() {
             if (error.response && error.response.status === 404) {
                 setShowtext(true)
             } else {
-                setError('Rate limit is exceeded. Take it slower and try again soon!');
+                setError('Rate limit is exceeded. Try again soon!');
             }
         } finally {
             setLoading(false)

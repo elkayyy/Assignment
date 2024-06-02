@@ -12,7 +12,7 @@ export default function InputBar({ email, setEmail, handleCheckBreaches, loading
                 <Box sx={{ width: 500, maxWidth: '100%' }}>
                     <TextField
                         fullWidth
-                        label="Enter your emailAddress/account"
+                        label="Enter your email address/account"
                         id="fullWidth"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}

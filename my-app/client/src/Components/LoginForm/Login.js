@@ -13,12 +13,13 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQJzQncbl-2Mx-FaMW7zbeweLVkGt6doTaDeoO2hjHLiZzF84p">
         JustMe
       </Link>{' '}
       {new Date().getFullYear()}
@@ -31,7 +32,9 @@ const defaultTheme = createTheme();
 
 export default function SignIn() {
 
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -43,7 +46,12 @@ export default function SignIn() {
          localStorage.setItem('user', JSON.stringify(res.data));
          navigate('/main')
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        setErrorMessage('Invalid username or password');
+      }
+
+        );
+      
 
   }
 
@@ -65,6 +73,11 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
+          {errorMessage && (
+            <Typography component="p" variant="body2" color="error">
+              {errorMessage}
+            </Typography>
+          )}
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"

@@ -37,7 +37,11 @@ export default function Results({ error, loading, breaches, showtext }) {
     const [expanded, setExpanded] = React.useState(Array(breaches.length).fill(false));
 
     const handleExpandClick = (index) => {
-        setExpanded(expanded.map((exp, i) => (i === index ? !exp : exp)));
+        setExpanded((prevExpanded) => {
+            const newExpanded = [...prevExpanded];
+            newExpanded[index] = !newExpanded[index];
+            return newExpanded;
+        });
     };
 
     return (
