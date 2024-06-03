@@ -27,7 +27,8 @@ This project integrates the "Have I Been Pwned" API by checking if email address
       REACT_APP_DB_USER=your_database_username 
       REACT_APP_DB_PASSWORD=your_database_password 
       REACT_APP_DB_NAME=your_database_name
-      REACT_APP_API_KEY="I will provide the API KEY" 
+      REACT_APP_API_KEY="I will provide the API KEY"
+      EACT_APP_JWT_SECRET=anyComplicatedStringYouPrefer
      ```
 7. Once MySql is running and you placed the .env file inside the **Server** directory, run : ```node ServerApp.js```
 8. Ready to go
