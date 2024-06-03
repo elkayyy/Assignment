@@ -40,7 +40,7 @@ export default function Breached() {
         <h3>Pwned Websites: {pwnedWebsites}</h3>
         <h3>Pwned Accounts: {pwnedAccounts}</h3>
       </div>
-      <h3 className="checkYours">Check if your email address or account is in a data breach</h3>
+    
     </div>
   );
 }

@@ -1,6 +1,5 @@
 .breachedContainerMessages{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     gap: 1rem;
     text-decoration: underline;
@@ -11,10 +10,6 @@
 
 h3 {
     font-weight: 500;
+    
 }
 
-.checkYours{
-    text-align: center;
-    font-weight: 500;
-  
-}

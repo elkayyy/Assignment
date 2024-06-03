@@ -14,10 +14,10 @@ export default function InputBar({
   return (
     <div className="middleBar">
       <div className="box">
-        <Box sx={{ width: '100%', maxWidth: 600}}>
+        <Box sx={{ width: "100%", maxWidth: 600 }}>
           <TextField
             fullWidth
-            label="Enter your email address/account"
+            label="Check if your email address or account is in a data breach"
             id="fullWidth"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
