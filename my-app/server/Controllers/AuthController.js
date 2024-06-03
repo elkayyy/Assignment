@@ -40,4 +40,4 @@ const register = (req, res) => {
   );
 };
 
-module.exports = { login, register, verifyToken };
+module.exports = { login, register};

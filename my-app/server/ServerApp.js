@@ -16,8 +16,6 @@ const breachRoutes = require("./Routes/BreachRoutes");
 app.use(authRoutes);
 app.use(breachRoutes);
 
-
-
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
