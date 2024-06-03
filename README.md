@@ -20,7 +20,7 @@ This project integrates the "Have I Been Pwned" API by checking if email address
 2. Login in mysql (linux) : ```mysql -u root -p```
 3. Setting Up MySQL Database (while logged in) : ```CREATE DATABASE your_database_name; ```
 4. Insert MySQL provided in the repository: <br /> <br /> ```mysql -u your_username -p your_database_name < ./database_dump.sql ```<br /> (Replace your_username with your MySQL username, and your_database_name with the name of your database.) <br /> <br />
-5. Run MySql server:  ```sudo systemctl start mysql in linux```
+5. Run MySql server (linux):  ```sudo systemctl start mysql```
 6. Create an .env file with the following properties and place it into the **Server** directory: <br /> <br />
     ```
       REACT_APP_DB_HOST=127.0.0.1 (Use 127.0.0.1 instead of localhost)
