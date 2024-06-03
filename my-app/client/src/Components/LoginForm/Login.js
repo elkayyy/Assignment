@@ -49,7 +49,7 @@ export default function SignIn() {
     axios
       .post("http://localhost:8000/login", { username, password })
       .then((res) => {
-        localStorage.setItem("user", JSON.stringify(res.data));
+        localStorage.setItem("token", res.data.token);
         navigate("/main");
       })
       .catch((err) => {
@@ -129,7 +129,7 @@ export default function SignIn() {
             </Box>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+        <Copyright sx={{ mt: 2, mb: 4 }} />
       </Container>
     </ThemeProvider>
   );
