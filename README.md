@@ -34,11 +34,11 @@ This project integrates the "Have I Been Pwned" API by checking if email address
 8. Ready to go
 
 **Important Notes**
-1. For simplicity, the application is using localStorage to protect routes and such as main. This is **BAD** practice for security.
+1. For simplicity, the application is using localStorage to protect routes such as /main. This is **BAD** practice for security.
 2. Security Risks: Data in localStorage is accessible from any JavaScript code on the same domain, making it vulnerable to XSS (Cross-Site Scripting) attacks.
 3. No Expiry: Data stored in localStorage does not expire automatically, which can lead to sensitive data lingering for an indefinite period.
 
-**An Alternative**
+**An Alternative and proper solution**
 1. Token-Based Authentication: Use JSON Web Tokens (JWT) for secure authentication.
 
 **Other**
