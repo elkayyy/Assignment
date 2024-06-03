@@ -20,7 +20,7 @@ This project integrates the "Have I Been Pwned" API by checking if email address
 2. Login in mysql (linux) : ```mysql -u root -p```
 3. Setting Up MySQL Database (while logged in) : ```CREATE DATABASE your_database_name; ```
 4. Insert MySQL provided in the repository: <br /> <br /> ```mysql -u your_username -p your_database_name < ./database_dump.sql ```<br /> (Replace your_username with your MySQL username, and your_database_name with the name of your database.) <br /> <br />
-5. Run MySql server:  ```sudo systemctl start mysql in linux```
+5. Run MySql server (linux):  ```sudo systemctl start mysql```
 6. Create an .env file with the following properties and place it into the **Server** directory: <br /> <br />
     ```
       REACT_APP_DB_HOST=127.0.0.1 (Use 127.0.0.1 instead of localhost)
@@ -34,11 +34,11 @@ This project integrates the "Have I Been Pwned" API by checking if email address
 8. Ready to go
 
 **Important Notes**
-1. For simplicity, the application is using localStorage to protect routes and such as main. This is **BAD** practice for security.
+1. For simplicity, the application is using localStorage to protect routes such as /main. This is **BAD** practice for security.
 2. Security Risks: Data in localStorage is accessible from any JavaScript code on the same domain, making it vulnerable to XSS (Cross-Site Scripting) attacks.
 3. No Expiry: Data stored in localStorage does not expire automatically, which can lead to sensitive data lingering for an indefinite period.
 
-**An Alternative**
+**An Alternative and proper solution**
 1. Token-Based Authentication: Use JSON Web Tokens (JWT) for secure authentication.
 
 **Other**
@@ -54,14 +54,14 @@ This project integrates the "Have I Been Pwned" API by checking if email address
 ```
 
 ```
-+----+----------+----------+------------+------------+ 
-| id | username | password | first_name | last_name  |
-+----+----------+----------+------------+------------+
-|  4 | guest    | guest    | mr         | star       |
-|  5 | jony     | dep      | John       | Do         |
-| 43 | niuc     | niuc1234 | Niucec     | Gumeniucec |
-| 44 | dsadas   | das      | sadas      | dsad       |
-+----+----------+----------+------------+------------+
+MariaDB [mydatabase]> select * from users;
++----+----------+--------------------------------------------------------------+------------+-----------+
+| id | username | password                                                     | first_name | last_name |
++----+----------+--------------------------------------------------------------+------------+-----------+
+| 49 | guest    | $2a$08$E9kOi./2cxq59Vn4nbT8JOwYIlcHhVU9RbDYXg5lnMVulsoVQ.mD6 | Guest      | Guester   |
+| 50 | testcase | $2a$08$cti8T4qwFXJkoOZNLQO2turGr1IWWRNqIrnBUZNetkJlmZ.3oIyRK | Test2      | Test2     |
++----+----------+--------------------------------------------------------------+------------+-----------+
+
 ```
 
 
