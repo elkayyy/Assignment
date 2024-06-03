@@ -54,14 +54,14 @@ This project integrates the "Have I Been Pwned" API by checking if email address
 ```
 
 ```
-+----+----------+----------+------------+------------+ 
-| id | username | password | first_name | last_name  |
-+----+----------+----------+------------+------------+
-|  4 | guest    | guest    | mr         | star       |
-|  5 | jony     | dep      | John       | Do         |
-| 43 | niuc     | niuc1234 | Niucec     | Gumeniucec |
-| 44 | dsadas   | das      | sadas      | dsad       |
-+----+----------+----------+------------+------------+
+MariaDB [mydatabase]> select * from users;
++----+----------+--------------------------------------------------------------+------------+-----------+
+| id | username | password                                                     | first_name | last_name |
++----+----------+--------------------------------------------------------------+------------+-----------+
+| 49 | guest    | $2a$08$E9kOi./2cxq59Vn4nbT8JOwYIlcHhVU9RbDYXg5lnMVulsoVQ.mD6 | Guest      | Guester   |
+| 50 | testcase | $2a$08$cti8T4qwFXJkoOZNLQO2turGr1IWWRNqIrnBUZNetkJlmZ.3oIyRK | Test2      | Test2     |
++----+----------+--------------------------------------------------------------+------------+-----------+
+
 ```
 
 
