@@ -14,7 +14,7 @@ export default function InputBar({
   return (
     <div className="middleBar">
       <div className="box">
-        <Box sx={{ width: 500, maxWidth: "100%" }}>
+        <Box sx={{ width: '100%', maxWidth: 600}}>
           <TextField
             fullWidth
             label="Enter your email address/account"

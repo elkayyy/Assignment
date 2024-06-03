@@ -152,7 +152,7 @@ export default function Results({ error, loading, breaches, showtext }) {
           transition={{ duration: 0.5 }}
         >
           <p>Great news! You are safe!</p>
-          <p>No breaches found for this email.</p>
+          <p>No breaches found for this email/account.</p>
         </motion.div>
       )}
     </div>

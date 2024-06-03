@@ -6,6 +6,7 @@ import NavrBar from "./NavrBar/NavBar";
 import Results from "./Results/Results";
 import InputBar from "./InputBar/InputBar";
 import { useNavigate } from "react-router-dom";
+import Breached from "./Breached/Breached";
 
 export default function MainPanel() {
   const [email, setEmail] = useState("");
@@ -55,7 +56,11 @@ export default function MainPanel() {
       <div className="navContainer">
         <NavrBar onLogout={handleLogout} />
       </div>
+      <div className="breachedContainer">
+        <Breached/>
+      </div>
       <div className="middleBar">
+
         <InputBar
           email={email}
           setEmail={setEmail}

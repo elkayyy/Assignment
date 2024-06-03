@@ -27,7 +27,33 @@ const checkBreachedAccount = async (req, res) => {
   }
 };
 
+const getPwnedData = async (req, res) => {
+  try {
+    const response = await axios.get(
+      "https://haveibeenpwned.com/api/v3/breaches",
+      {
+        headers: {
+          "hibp-api-key": process.env.REACT_APP_API_KEY,
+          "user-agent": "check",
+        },
+      }
+    );
 
+    const breaches = response.data;
+    const pwnedWebsites = breaches.length;
+    const pwnedAccounts = breaches.reduce(
+      (sum, breach) => sum + breach.PwnCount,
+      0
+    );
+    const formattedPwnedAccounts = pwnedAccounts.toLocaleString(undefined, { maximumFractionDigits: 2 }).replace(/\.00$/, '');
+    res.json({
+      pwnedWebsites,
+      formattedPwnedAccounts,
+    });
+  } catch (error) {
+    console.error("Error fetching pwned data:", error);
+    res.status(500).send("Server error");
+  }
+};
 
-
-module.exports = { checkBreachedAccount }
+module.exports = { checkBreachedAccount, getPwnedData };
