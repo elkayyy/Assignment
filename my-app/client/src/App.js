@@ -12,7 +12,7 @@ function App() {
         <Route path="/register" element={<RegistrationForm />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="/main" element={<MainPanel />} />
-          <Route path="/" element={<LoginForm />} />
+          <Route path="/*" element={<LoginForm />} />
         </Route>
       </Routes>
     </Router>
