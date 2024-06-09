@@ -19,14 +19,15 @@ This project integrates the "Have I Been Pwned" API by checking if email address
 * Once downloaded ```cd my-app```
 * Setup the .env file. It must be placed in ```my-app``` directory along with ```docker-compose.yaml``` file.
 
- ```
+```
       REACT_APP_DB_HOST=mysql
       REACT_APP_DB_USER=root
       REACT_APP_DB_PASSWORD=root
       REACT_APP_DB_NAME=mydatabase
       REACT_APP_API_KEY="I will provide the API KEY"
       REACT_APP_JWT_SECRET=anyComplicatedStringYouPrefer
-     ```
+```
+  
 * Run ```docker-compose up --build```
 * Navigate to http://localhost:3000
 
