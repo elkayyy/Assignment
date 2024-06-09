@@ -1,7 +1,7 @@
-const db = require("../Config/Db");
+const db = require("../db/Config/Db" );
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-require("dotenv").config();
+require("../db/node_modules/dotenv/lib/main").config();
 
 const login = (req, res) => {
   const { username, password } = req.body;

@@ -6,32 +6,29 @@
 This project integrates the "Have I Been Pwned" API by checking if email addresses or accounts have been compromised in data breaches. The application allows users to enter their email addresses or accounts and verify if they have been exposed in known breaches. 
 
 **Prerequisites**
-* Node.js
-* npm (Node Package Manager)
-* MySQL
+* Docker
+* Docker Compose
 
 **Key Features:**
 * Check if an email address has been compromised in any known data breaches.
 * Provide recommendations for securing accounts if a breach is detected.
 * User-friendly interface for seamless interaction.
 
-**How to run**
-1. Navigate to the client directory: ```npm install``` and then ```npm start```
-2. Login in mysql (linux) : ```mysql -u root -p```
-3. Setting Up MySQL Database (while logged in) : ```CREATE DATABASE your_database_name; ```
-4. Insert MySQL provided in the repository: <br /> <br /> ```mysql -u your_username -p your_database_name < ./database_dump.sql ```<br /> (Replace your_username with your MySQL username, and your_database_name with the name of your database.) <br /> <br />
-5. Run MySql server (linux):  ```sudo systemctl start mysql```
-6. Create an .env file with the following properties and place it into the **Server** directory: <br /> <br />
-    ```
-      REACT_APP_DB_HOST=127.0.0.1 (Use 127.0.0.1 instead of localhost)
-      REACT_APP_DB_USER=your_database_username 
-      REACT_APP_DB_PASSWORD=your_database_password 
-      REACT_APP_DB_NAME=your_database_name
+**How to run (Updated Version, now Dockerized.)**
+* Simply Clone the application for github  ```git clone <repository>```
+* Once downloaded ```cd my-app```
+* Setup the .env file. It must be placed in ```my-app``` directory along with ```docker-compose.yaml``` file.
+
+ ```
+      REACT_APP_DB_HOST=mysql
+      REACT_APP_DB_USER=root
+      REACT_APP_DB_PASSWORD=root
+      REACT_APP_DB_NAME=mydatabase
       REACT_APP_API_KEY="I will provide the API KEY"
       REACT_APP_JWT_SECRET=anyComplicatedStringYouPrefer
      ```
-7. Once MySql is running and you placed the .env file inside the **Server** directory, run : ```node ServerApp.js```
-8. Ready to go
+* Run ```docker-compose up --build```
+* Navigate to http://localhost:3000
 
 **Important Notes**
 1. For simplicity, the application is using localStorage to protect routes such as /main. This is **BAD** practice for security.

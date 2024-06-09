@@ -1,0 +1,21 @@
+# Ignore node_modules
+node_modules
+
+# Ignore logs
+logs
+*.log
+npm-debug.log*
+
+# Ignore client directory (if not needed for the server build)
+server
+
+# Ignore build output
+dist
+build
+
+# Ignore Dockerfile and Docker Compose file (if not needed inside the image)
+Dockerfile
+docker-compose.yml
+
+# Ignore environment variable files
+.env
