@@ -14,10 +14,10 @@ This project integrates the "Have I Been Pwned" API by checking if email address
 * Provide recommendations for securing accounts if a breach is detected.
 * User-friendly interface for seamless interaction.
 
-**How to run (Updated Version, now Dockerized.)**
-* Simply Clone the application for github  ```git clone <repository>```
-* Once downloaded ```cd my-app```
-* Setup the .env file. It must be placed in ```my-app``` directory along with ```docker-compose.yaml``` file.
+**How to run (Updated Version, now Dockerized)**
+* Simply Clone the application from github  ```git clone <repository>```
+* Once downloaded, cd to my-app folder ```cd my-app```
+* Setup the .env file. It must be placed in ```my-app``` directory alongside with ```docker-compose.yaml``` file.
 
 ```
       REACT_APP_DB_HOST=mysql
@@ -29,7 +29,9 @@ This project integrates the "Have I Been Pwned" API by checking if email address
 ```
   
 * Run ```docker-compose up --build```
-* Navigate to http://localhost:3000
+* Navigate to http://localhost:3000 - (Frontend)
+* Server resides at port 8000
+* MySql resides at port 3606
 
 **Important Notes**
 1. For simplicity, the application is using localStorage to protect routes such as /main. This is **BAD** practice for security.
