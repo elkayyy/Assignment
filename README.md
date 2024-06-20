@@ -1,9 +1,7 @@
 # Assignment
 ## Have I Been Pwned API Integration.
 
-:::note
-yo
-:::
+**Description**
 
 This project integrates the "Have I Been Pwned" API by checking if email addresses or accounts have been compromised in data breaches. The application allows users to enter their email addresses or accounts and verify if they have been exposed in known breaches. 
 
